@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react"
 
 
@@ -15,9 +16,25 @@ export const HomePage = () => {
     const[success,setSuccess]= useState(false);
 
 
-   function handleSubmit(){
+   const  handleSubmit = async ()=>{
       if(!name || !email || !mobileNumber || !feedback || !rating){
         return setError("all field required");
+      }
+
+      setLoading(true);
+      setSuccess(false);
+
+      try {
+        const response = await axios.post("http://localhost:9000/user-info",{
+            name,email , mobileNumber ,feedback , rating
+        })
+        console.log(response.data);
+        setSuccess(true);
+        
+      } catch (error) {
+        setError("something went wrong ")
+      }finally{
+        setLoading(false);
       }
     }
   
@@ -57,7 +74,7 @@ export const HomePage = () => {
     {error && <p className="text-red-500 text-2xl text-center">{error}</p>}
       {success && <p className="text-green-500 text-2xl text-center">Submitted successfully!</p>}
     <button 
-    className=" text-4xl gap-8 text-blue-400 px-50 py-4  text-red-600"
+    className="text-3xl bg-blue-500 text-white px-12 py-4 rounded-xl mx-auto block disabled:opacity-50 hover:bg-blue-600 transition-colors"
      disabled={loading}
      onClick={()=>handleSubmit()}
      > {loading ? "Submitting.." : "Submit"} </button>
