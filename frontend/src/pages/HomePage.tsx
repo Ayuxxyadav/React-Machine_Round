@@ -76,7 +76,7 @@ export const HomePage = () => {
     <div className="flex mx-20  my-4 gap-8">
      <h1 className="text-blue-600 text-4xl mx-4 ">Sumbit here :</h1>   
       <button 
-      className="text-l   bg-blue-500 text-white px-10 rounded-xl  block disabled:opacity-50 hover:bg-blue-600 transition-colors"
+      className="text-xl   bg-blue-500 text-white px-10 rounded-xl  block disabled:opacity-50 hover:bg-blue-600 transition-colors"
       disabled={loading}
       onClick={()=>handleSubmit()}
      > {loading ? "Submitting.." : "Submit"} </button>
