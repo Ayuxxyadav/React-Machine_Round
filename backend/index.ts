@@ -17,8 +17,6 @@ app.use(cors({
 }))
 
 app.use(express.json());
-app
-
 app.use("/", Route)
 
 app.listen(PORT,()=>{

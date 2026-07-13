@@ -6,6 +6,6 @@ import { userInfo } from "../controller /userInfo";
 
 
       
-    Route.post("user-info",userInfo )
+    Route.post("/user-info",userInfo )
 
     export default Route ;
