@@ -30,6 +30,12 @@ export const HomePage = () => {
         })
         console.log(response.data);
         setSuccess(true);
+
+        setName("");
+        setEmail("");
+        setFeedback("");
+        setMobileNumber("");
+        setRating("");
         
       } catch (error) {
         setError("something went wrong ")
