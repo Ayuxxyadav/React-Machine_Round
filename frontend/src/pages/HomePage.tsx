@@ -42,7 +42,9 @@ export const HomePage = () => {
     <>
     
       <h1 className="text-blue-600 text-6xl text-center my-5 py-10">User Feedback Form </h1>
-
+      <h2>
+    {error && <p className="text-red-500 text-2xl text-center">{error}</p>}
+      {success && <p className="text-green-500 text-2xl text-center">Submitted successfully!</p>}</h2>
      <div>
 
      <div className="flex text-4xl gap-8 text-blue-400 px-25 py-4 ">
@@ -71,13 +73,15 @@ export const HomePage = () => {
    
 
 
-    {error && <p className="text-red-500 text-2xl text-center">{error}</p>}
-      {success && <p className="text-green-500 text-2xl text-center">Submitted successfully!</p>}
-    <button 
-    className="text-3xl bg-blue-500 text-white px-12 py-4 rounded-xl mx-auto block disabled:opacity-50 hover:bg-blue-600 transition-colors"
-     disabled={loading}
-     onClick={()=>handleSubmit()}
+    <div className="flex mx-20  my-4 gap-8">
+     <h1 className="text-blue-600 text-4xl mx-4 ">Sumbit here :</h1>   
+      <button 
+      className="text-l   bg-blue-500 text-white px-10 rounded-xl  block disabled:opacity-50 hover:bg-blue-600 transition-colors"
+      disabled={loading}
+      onClick={()=>handleSubmit()}
      > {loading ? "Submitting.." : "Submit"} </button>
+    </div>
+
     
      
     
